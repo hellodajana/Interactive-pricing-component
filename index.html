@@ -5,35 +5,82 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="/styles/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap" rel="stylesheet"> 
   
-  <title>Frontend Mentor | Interactive pricing component</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <title>Interactive pricing component</title>
 </head>
 <body>
+  <main>
+    <header class="header">
+      <div class="header__container">
+        <h1>Simple, traffic-based pricing</h1>
+        <p>Sign-up for our 30-day trial.<br>No credit card required.</p>
+      </div>
+    </header>
+    <div class="card">
+      <div class="card__header">
+        <p id="pageviews-count">
+          100k Pageviews
+        </p>
+        <div class="card__slider-container">
+          <input
+								type="range"
+								name="range"
+								class="slider"
+								id="range"
+								aria-label="input"
+							/>
+            <h2 class="card__price">
+              <span id="price">$16.00</span>
+              <span class="card__duration">month</span>
+            </h2>
+            <div class="card__billing">
+              <p class="card__monthly">Monthly Billing</p>
+              <input
+									type="checkbox"
+									name="checkanually"
+									class="switch"
+									aria-label="input"
+									id="toggle_discount"
+								/>
+              <p class="card__yearly">Yearly Billing</p>
+              <p class="card__discount">
+                -25% <span> discount</span>
+              </p>
+            </div>
+        </div>
+        <div class="card__footer">
+          <ul class="card__list">
+            <li class="card__item">
+              <img src="./images/icon-check.svg" alt="icon-check">
+              Unlimited websites
+            </li>
+            <li class="card__item">
+              <img src="./images/icon-check.svg" alt="icon-check">
+              100% data ownership
+            </li>
+            <li class="card__item">
+              <img src="./images/icon-check.svg" alt="icon-check">
+              Email reports
+            </li>
+          </ul>
+          <button class="btn">
+            Start my trial
+          </button>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="https://github.com/hellodajana">Dajana</a>.
+      </div>
+    </footer>
 
-  Simple, traffic-based pricing
-  Sign-up for our 30-day trial. No credit card required. 
+  </main>
 
-  Pageviews
-  $ /month
-
-  Monthly Billing
-  Yearly Billing 25% discount
-
-  Unlimited websites
-  100% data ownership
-  Email reports
-
-  Start my trial
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
 </body>
 </html>
