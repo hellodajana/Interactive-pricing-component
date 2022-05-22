@@ -36,8 +36,6 @@ Here are the different page view ranges and the corresponding monthly price tota
 If the visitor switches the toggle to yearly billing, a 25% discount should be applied to all prices.
 
 
-## Author
+## Links
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Live Site URL - [Link](https://www.your-site.com)

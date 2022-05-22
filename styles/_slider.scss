@@ -10,15 +10,9 @@ input[type='range']:focus {
 .slider {
     width: 100%;
     -webkit-appearance: none;
+    background: $LightGrayishBlue;
     appearance: none;
     height: 0.6rem;
-    background: linear-gradient(
-        to right, 
-        $SoftCyan 0%, 
-        $SoftCyan 50%, 
-        $LightGrayishBlue 50%, 
-        $LightGrayishBlue 100% 
-        );
     transition: background 450ms ease-in;
     border-radius: 1rem;
     outline: none;
@@ -31,10 +25,7 @@ input[type='range']:focus {
         cursor: pointer;
         -webkit-appearance: none;
         margin-top: -8px;
-        background-image: url(/images/icon-slider.svg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-color: $StrongCyan;
+        background: $StrongCyan url(/images/icon-slider.svg) center/auto no-repeat;
         cursor: pointer;   
 
 		&:active,
@@ -42,17 +33,19 @@ input[type='range']:focus {
             background-color: darken($StrongCyan, 15%);
 		}
 	}
+    &::-moz-range-progress {
+        background: $SoftCyan;
+        height: 100%;
+        border-radius: 50px;
+    }
 
 	&::-moz-range-thumb {
 		box-shadow: 0 12px 10px 5px hsla(174, 77%, 80%, 0.6);
-        border: 0px solid #000000;
+        border: 0px;
         height: 40px;
         width: 40px;
         border-radius: 100%;
-        background-image: url(/images/icon-slider.svg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-color: $StrongCyan;
+        background: $StrongCyan url(/images/icon-slider.svg) center/auto no-repeat;
         cursor: pointer;
 
 		&:active,
@@ -60,4 +53,12 @@ input[type='range']:focus {
 			background-color: darken($StrongCyan, 15%);
 		}
 	}
+
+    &::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    background: $SoftCyan;
+    height: 100%;
+    border-radius: 50px;
+    }
+
 }
