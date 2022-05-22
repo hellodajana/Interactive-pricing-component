@@ -20,9 +20,10 @@
         <p>Sign-up for our 30-day trial.<br>No credit card required.</p>
       </div>
     </header>
+
     <div class="card">
       <div class="card__header">
-        <p id="pageviews-count">
+        <p class="card__view" id="pageviews-count">
           100k Pageviews
         </p>
         <div class="card__slider-container">
@@ -33,53 +34,57 @@
 								id="range"
 								aria-label="input"
 							/>
-            <h2 class="card__price">
-              <span id="price">$16.00</span>
-              <span class="card__duration">month</span>
-            </h2>
-            <div class="card__billing">
-              <p class="card__monthly">Monthly Billing</p>
-              <input
-									type="checkbox"
-									name="checkanually"
-									class="switch"
-									aria-label="input"
-									id="toggle_discount"
-								/>
-              <p class="card__yearly">Yearly Billing</p>
-              <p class="card__discount">
-                -25% <span> discount</span>
-              </p>
-            </div>
         </div>
-        <div class="card__footer">
-          <ul class="card__list">
-            <li class="card__item">
-              <img src="./images/icon-check.svg" alt="icon-check">
-              Unlimited websites
-            </li>
-            <li class="card__item">
-              <img src="./images/icon-check.svg" alt="icon-check">
-              100% data ownership
-            </li>
-            <li class="card__item">
-              <img src="./images/icon-check.svg" alt="icon-check">
-              Email reports
-            </li>
-          </ul>
-          <button class="btn">
-            Start my trial
-          </button>
+
+        <h2 class="card__price">
+          <span class="card__price-number" id="price">$16.00</span>
+          <span class="card__divider">/</span>
+          <span class="card__duration">month</span>
+        </h2>
+
+        <div class="card__billing">
+          <p class="card__monthly">Monthly Billing</p>
+          <div class="display">
+            <label class="label toggle">
+              <input type="checkbox" class="toggle_input" />
+              <div class="toggle-control"></div>
+            </label>
+          </div>
+          <p class="card__yearly">Yearly Billing</p>
+          <p class="card__discount">
+            -25% <span> discount</span>
+          </p>
         </div>
       </div>
+
+      <div class="card__footer">
+        <ul class="card__list">
+          <li class="card__item">
+            <img src="./images/icon-check.svg" alt="icon-check">
+            Unlimited websites
+          </li>
+          <li class="card__item">
+            <img src="./images/icon-check.svg" alt="icon-check">
+            100% data ownership
+          </li>
+          <li class="card__item">
+            <img src="./images/icon-check.svg" alt="icon-check">
+            Email reports
+          </li>
+        </ul>
+        <button class="btn">
+          Start my trial
+        </button>
+      </div>
     </div>
+
+
     <footer>
       <div class="attribution">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
         Coded by <a href="https://github.com/hellodajana">Dajana</a>.
       </div>
     </footer>
-
   </main>
 
 </body>
