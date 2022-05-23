@@ -1,42 +1,40 @@
-$transition: .3s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+$transition: 0.3s cubic-bezier(0.95, 0.05, 0.795, 0.035);
 $width: 4em;
 $height: $width/2;
 
-.toggle{
-  
-    .toggle-control{
-        transition: $transition;
-        width: $width;
-        height: $height;
-        display: block;
-        border-radius: $height;
-        background-color: $LightGrayishBlue;
-        position: relative;
-        &:after{
-        position: absolute;
-        transition: $transition;
-        content: "";
-        width: $width/2;
-        height: $height - 0.2em;
-        display: block;
-        background-color: white;
-        border-radius: 50%;
-        position: absolute;
-        top: 1px;
-        bottom: 1px;
-        left: 3px;
-        right: 3px;
+.toggle {
+  .toggle-control {
+    transition: $transition;
+    width: $width;
+    height: $height;
+    display: block;
+    border-radius: $height;
+    background-color: $LightGrayishBlue;
+    position: relative;
+    &:after {
+      position: absolute;
+      transition: $transition;
+      content: "";
+      width: $width/2;
+      height: $height - 0.2em;
+      display: block;
+      background-color: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 1px;
+      bottom: 1px;
+      left: 3px;
+      right: 3px;
+    }
+  }
+
+  input {
+    display: none;
+    &:checked + .toggle-control {
+      background-color: $StrongCyan;
+      &:after {
+        left: $width/2;
       }
     }
-    
-   input{
-     display: none;
-     &:checked + .toggle-control{
-       background-color: $StrongCyan;
-       &:after{
-         left: $width/2;
-       }
-     }
-   }
-
- }
+  }
+}

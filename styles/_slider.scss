@@ -1,64 +1,63 @@
-input[type='range'] {
-	-webkit-appearance: none;
-	margin: 10px 0;
-	width: 100%;
+input[type="range"] {
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 100%;
 }
-input[type='range']:focus {
-	outline: none;
+input[type="range"]:focus {
+  outline: none;
 }
 
 .slider {
-    width: 100%;
+  width: 100%;
+  -webkit-appearance: none;
+  background: $LightGrayishBlue;
+  appearance: none;
+  height: 0.6rem;
+  transition: background 450ms ease-in;
+  border-radius: 1rem;
+  outline: none;
+  animation: 0.2s;
+
+  &::-webkit-slider-thumb {
+    box-shadow: 0 12px 10px 5px $SoftCyan;
+    border-radius: 15px;
+    background: $StrongCyan;
+    cursor: pointer;
     -webkit-appearance: none;
-    background: $LightGrayishBlue;
-    appearance: none;
-    height: 0.6rem;
-    transition: background 450ms ease-in;
-    border-radius: 1rem;
-    outline: none;
-    animation: 0.2s;
+    margin-top: -8px;
+    background: $StrongCyan url(/images/icon-slider.svg) center/auto no-repeat;
+    cursor: pointer;
 
-	&::-webkit-slider-thumb {
-		box-shadow: 0 12px 10px 5px $SoftCyan;
-        border-radius: 15px;
-        background: $StrongCyan;
-        cursor: pointer;
-        -webkit-appearance: none;
-        margin-top: -8px;
-        background: $StrongCyan url(/images/icon-slider.svg) center/auto no-repeat;
-        cursor: pointer;   
-
-		&:active,
-		&:hover {
-            background-color: darken($StrongCyan, 15%);
-		}
-	}
-    &::-moz-range-progress {
-        background: $SoftCyan;
-        height: 100%;
-        border-radius: 50px;
+    &:active,
+    &:hover {
+      background-color: darken($StrongCyan, 15%);
     }
+  }
+  &::-moz-range-progress {
+    background: $SoftCyan;
+    height: 100%;
+    border-radius: 50px;
+  }
 
-	&::-moz-range-thumb {
-		box-shadow: 0 12px 10px 5px hsla(174, 77%, 80%, 0.6);
-        border: 0px;
-        height: 40px;
-        width: 40px;
-        border-radius: 100%;
-        background: $StrongCyan url(/images/icon-slider.svg) center/auto no-repeat;
-        cursor: pointer;
+  &::-moz-range-thumb {
+    box-shadow: 0 12px 10px 5px hsla(174, 77%, 80%, 0.6);
+    border: 0px;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    background: $StrongCyan url(/images/icon-slider.svg) center/auto no-repeat;
+    cursor: pointer;
 
-		&:active,
-		&:hover {
-			background-color: darken($StrongCyan, 15%);
-		}
-	}
+    &:active,
+    &:hover {
+      background-color: darken($StrongCyan, 15%);
+    }
+  }
 
-    &::-webkit-slider-runnable-track {
+  &::-webkit-slider-runnable-track {
     -webkit-appearance: none;
     background: $SoftCyan;
     height: 100%;
     border-radius: 50px;
-    }
-
+  }
 }

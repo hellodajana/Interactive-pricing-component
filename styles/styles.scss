@@ -1,197 +1,191 @@
-@import '_variables'; 
-@import '_media-queries';
-@import '_slider';
-@import '_switch';
+@import "_variables";
+@import "_media-queries";
+@import "_slider";
+@import "_switch";
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: 'Manrope', sans-serif;
-    font-size: 15px;
-    background-color:$VeryPaleBlue;
-    min-height: 100vh;
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  background-color: $VeryPaleBlue;
+  min-height: 100vh;
 }
 
 main {
-    min-height: 100vh;
-  }
-  
+  min-height: 100vh;
+}
+
 .header {
-    background-image: url(/images/bg-pattern.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 4rem 0;
-    text-align: center;
+  background: url(/images/bg-pattern.svg) no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
+  text-align: center;
+  @include desktop {
+    padding: 6rem 0;
+  }
+  &__container {
+    padding: 2rem;
+    background: url(/images/pattern-circles.svg) center no-repeat;
+    background-size: contain;
+    height: 10rem;
     @include desktop {
-        padding: 6rem 0;
+      height: 7rem;
     }
-    &__container {
-        padding: 2rem;
-        background-image: url(/images/pattern-circles.svg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        height: 10rem;
-        @include desktop {
-            height: 7rem;
-        }
-        
+
     & h1 {
-        color: $DarkDesaturatedBlue;
-        font-size: 20px;
-        font-weight: 800;
+      color: $DarkDesaturatedBlue;
+      font-size: 20px;
+      font-weight: 800;
     }
     & p {
-        color: $GrayishBlue;
-        margin: 10px 0;
-        line-height: 25px;
-    & br {
+      color: $GrayishBlue;
+      margin: 10px 0;
+      line-height: 25px;
+      & br {
         @include desktop {
-            display: none
+          display: none;
         }
+      }
     }
-    }
-    }
+  }
 }
 
 .card {
-    @include flex;
-    flex-direction: column;
+  @include flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: white;
+  margin: -2rem 2rem;
+  position: relative;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 40px -20px $GrayishBlue;
+  @include desktop {
+    width: 40%;
+    left: 50%;
+    transform: translate(-50%);
+  }
+  @include big-desktop {
+    width: 30%;
+  }
+  &__header {
+    margin: 2rem;
+  }
+  &__view {
     text-align: center;
-    background-color: white;
-    margin: -2rem 2rem;
-    position: relative;
-    border-radius: 0.5rem;
-    box-shadow: 0 10px 40px -20px $GrayishBlue;
-    @include desktop {
-        width: 40%; 
-        left: 50%;
-        transform: translate(-50%);
-    }
-    @include big-desktop {
-        width: 30%;
-    }
-    &__header {
-        margin: 2rem;
-    }
-    &__view {
-        text-align: center;
-        color: $GrayishBlue;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-size: 12px;
-        margin-bottom: 2rem;
-        
-        @include desktop {
-            text-align: left;
-            margin: 2rem 0rem;
-        }
-    }
-    &__price {
-        padding: 2rem 0;
-        @include flex;
-        align-items: center;
-        gap: 6px;
-        @include desktop {
-            justify-content: right;
-            margin-top: -8.3rem;
-            padding-bottom: 6rem;
-        }
-    }
-    &__price-number {
-        font-size: 32px;
-        color: $DarkDesaturatedBlue;
-    }
-    &__duration, &__divider {
-        font-size: 14px;
-        color: $GrayishBlue;
-        font-weight: 300;
-        letter-spacing: 0.5px;
-    }
-    &__billing {
-        @include flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 14px;
-        color: $GrayishBlue;
-        @include desktop {
-            justify-content: flex-end;
-            font-size: 10px;
-        }
-    }
-    &__discount {
-        background-color: $LightGrayishRed;
-        color: $LightRed;
-        padding: 4px 8px;
-        border-radius: 14px;
-        @include desktop {
-            font-size: 8px;
-        }
-    span {
-        display: none;
-        @include desktop {
-            display: inline;
-        }
-    }
-    }
-    &__footer {
-        border-top: 1px solid $LightGrayishBlue;
-        @include desktop {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
-    }
-    ul {
-        list-style-type: none;
-        margin: 2rem 0;
-        @include desktop {
-            text-align: left;
-            font-size: 12px;
-        }
-    }
-    &__item {
-        margin: 1rem;
-        color: $GrayishBlue;
-        font-size: 14px;
-    img {
-        margin-right: 6px;
-    }
-    }
-    button {
-        margin-bottom: 2rem;
-        padding: 1em 4em;
-        border-radius: 23px;
-        border: none;
-        background: $DarkDesaturatedBlue;
-        color: $PaleBlue;
-        cursor: pointer;
-        @include desktop {
-            padding: 0.6em 2em;
-        }
-        
-        &:active,
-		&:hover {
-            color: white;
-		}
+    color: $GrayishBlue;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    margin-bottom: 2rem;
 
+    @include desktop {
+      text-align: left;
+      margin: 2rem 0rem;
     }
-    
-    
+  }
+  &__price {
+    padding: 2rem 0;
+    @include flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 32px;
+    color: $DarkDesaturatedBlue;
+    @include desktop {
+      justify-content: right;
+      margin-top: -8.3rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  &__duration,
+  &__divider {
+    font-size: 14px;
+    color: $GrayishBlue;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+  &__billing {
+    @include flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: $GrayishBlue;
+    @include desktop {
+      justify-content: flex-end;
+      font-size: 10px;
+    }
+  }
+  &__discount {
+    background-color: $LightGrayishRed;
+    color: $LightRed;
+    padding: 4px 8px;
+    border-radius: 14px;
+    @include desktop {
+      font-size: 8px;
+    }
+    span {
+      display: none;
+      @include desktop {
+        display: inline;
+      }
+    }
+  }
+  &__footer {
+    border-top: 1px solid $LightGrayishBlue;
+    @include desktop {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+  ul {
+    list-style-type: none;
+    margin: 2rem 0;
+    @include desktop {
+      text-align: left;
+      font-size: 12px;
+    }
+  }
+  &__item {
+    margin: 1rem;
+    color: $GrayishBlue;
+    font-size: 14px;
+    img {
+      margin-right: 6px;
+    }
+  }
+  button {
+    margin-bottom: 2rem;
+    padding: 1em 4em;
+    border-radius: 23px;
+    border: none;
+    background: $DarkDesaturatedBlue;
+    color: $PaleBlue;
+    cursor: pointer;
+    @include desktop {
+      padding: 0.6em 2em;
+    }
+
+    &:active,
+    &:hover {
+      color: white;
+    }
+  }
 }
 
-.attribution { 
-    font-size: 11px; 
-    text-align: center; 
-    &.attribution a { 
-        color: hsl(228, 45%, 44%); 
-    }
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  &.attribution a {
+    color: hsl(228, 45%, 44%);
+  }
 }
