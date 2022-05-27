@@ -2,34 +2,39 @@ var slider = document.getElementById("range");
 var output = document.getElementById("pageviews-count");
 var price = document.getElementById("price");
 var planType = document.getElementById("plan-type");
-var switchButton = document.getElementById("toggle");
-var switchInput = document.querySelector("#toggle input");
+var checkbox = document.querySelector('input[type="checkbox"]');
 
-let pricing = parseInt(price.textContent);
+var pageViews = ["10K", "50K", "100K", "500K", "1M"];
+var perMonth = [9, 12, 16, 24, 36];
 
-slider.oninput = function (e) {
-  if (this.value <= 20) {
-    output.innerHTML = "10K pageviews";
-    pricing = 8;
-  } else if ((this.value > 20) & (slider.value <= 40)) {
-    output.innerHTML = "50K pageviews";
-    pricing = 12;
-  } else if ((this.value > 40) & (slider.value <= 60)) {
-    output.innerHTML = "100K pageviews";
-    pricing = 16;
-  } else if ((this.value > 60) & (slider.value <= 80)) {
-    output.innerHTML = "500K pageviews";
-    pricing = 24;
-  } else if ((this.value > 80) & (slider.value <= 100)) {
-    output.innerHTML = "1M pageviews";
-    pricing = 36;
+var isYearly = false;
+
+// slider changes price and view counts
+slider.addEventListener("input", () => {
+  changePrice();
+  var views = pageViews[slider.value];
+  output.innerHTML = `${views} pageviews`;
+});
+
+// checks if toggle switch is on year or month
+checkbox.addEventListener("change", (e) => {
+  if (e.target.checked) {
+    isYearly = true;
+  } else {
+    isYearly = false;
   }
-  // doesn't update immediately
-  if (switchButton.checked) {
-    var discountedPrice = pricing - (pricing / 100) * 25;
-    price.textContent = `$${discountedPrice}.00`;
+  changePrice();
+});
+
+// changes price
+function changePrice() {
+  if (isYearly == true) {
+    var discountedPricing = perMonth[slider.value] * 0.75;
+    price.innerHTML = `$${discountedPricing}`;
     planType.textContent = "year";
   } else {
-    price.textContent = `$${pricing}.00`;
+    var pricing = perMonth[slider.value];
+    price.innerHTML = `$${pricing}.00`;
+    planType.textContent = "month";
   }
-};
+}
