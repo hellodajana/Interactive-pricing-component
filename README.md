@@ -35,7 +35,6 @@ Here are the different page view ranges and the corresponding monthly price tota
 
 If the visitor switches the toggle to yearly billing, a 25% discount should be applied to all prices.
 
-
 ## Links
 
-- Live Site URL - [Link](https://www.your-site.com)
+- Live Site URL - [Link](https://hellodajana-interactive-pricing-component.netlify.app/)
