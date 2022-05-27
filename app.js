@@ -14,9 +14,16 @@ slider.addEventListener("input", () => {
   changePrice();
   var views = pageViews[slider.value];
   output.innerHTML = `${views} pageviews`;
+
+  let value = slider.value * 25;
+  slider.style.background = `linear-gradient(to right,
+    hsl(174, 77%, 80%) 0%,
+    hsl(174, 77%, 80%) ${value}%,
+    hsl(224, 65%, 95%) 0%,
+    hsl(224, 65%, 95%) 100%)`;
 });
 
-// checks if toggle switch is on year or month
+// checks if toggle switch is on
 checkbox.addEventListener("change", (e) => {
   if (e.target.checked) {
     isYearly = true;

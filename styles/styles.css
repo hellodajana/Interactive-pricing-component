@@ -11,9 +11,8 @@ input[type="range"]:focus {
 .slider {
   width: 100%;
   -webkit-appearance: none;
-  background: #eaeefb;
-  -moz-appearance: none;
-       appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   height: 0.6rem;
   -webkit-transition: background 450ms ease-in;
   transition: background 450ms ease-in;
@@ -21,16 +20,19 @@ input[type="range"]:focus {
   outline: none;
   -webkit-animation: 0.2s;
           animation: 0.2s;
+  background: -webkit-gradient(linear, left top, right top, from(#a5f3eb), color-stop(50%, #a5f3eb), color-stop(0%, #eaeefb), to(#eaeefb));
+  background: linear-gradient(to right, #a5f3eb 0%, #a5f3eb 50%, #eaeefb 0%, #eaeefb 100%);
 }
 
 .slider::-webkit-slider-thumb {
-  -webkit-box-shadow: 0 12px 10px 5px #a5f3eb;
-          box-shadow: 0 12px 10px 5px #a5f3eb;
-  border-radius: 15px;
-  background: #10d5c2;
-  cursor: pointer;
   -webkit-appearance: none;
-  margin-top: -8px;
+  -webkit-box-shadow: 0 12px 10px 5px rgba(165, 243, 235, 0.6);
+          box-shadow: 0 12px 10px 5px rgba(165, 243, 235, 0.6);
+  border: 0px;
+  height: 40px;
+  width: 40px;
+  margin: -12px 0px;
+  border-radius: 100%;
   background: #10d5c2 url(/images/icon-slider.svg) center/auto no-repeat;
   cursor: pointer;
 }
@@ -39,17 +41,12 @@ input[type="range"]:focus {
   background-color: #0b8e81;
 }
 
-.slider::-moz-range-progress {
-  background: #a5f3eb;
-  height: 100%;
-  border-radius: 50px;
-}
-
 .slider::-moz-range-thumb {
   box-shadow: 0 12px 10px 5px rgba(165, 243, 235, 0.6);
   border: 0px;
   height: 40px;
   width: 40px;
+  margin: -12px 0px;
   border-radius: 100%;
   background: #10d5c2 url(/images/icon-slider.svg) center/auto no-repeat;
   cursor: pointer;
@@ -59,11 +56,19 @@ input[type="range"]:focus {
   background-color: #0b8e81;
 }
 
-.slider::-webkit-slider-runnable-track {
-  -webkit-appearance: none;
-  background: #a5f3eb;
-  height: 100%;
-  border-radius: 50px;
+.slider::-ms-thumb {
+  box-shadow: 0 12px 10px 5px rgba(165, 243, 235, 0.6);
+  border: 0px;
+  height: 40px;
+  width: 40px;
+  margin: -12px 0px;
+  border-radius: 100%;
+  background: #10d5c2 url(/images/icon-slider.svg) center/auto no-repeat;
+  cursor: pointer;
+}
+
+.slider::-ms-thumb:active, .slider::-ms-thumb:hover {
+  background-color: #0b8e81;
 }
 
 .toggle .toggle-control {
