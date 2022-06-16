@@ -37,11 +37,11 @@ checkbox.addEventListener("change", (e) => {
 function changePrice() {
   if (isYearly == true) {
     var discountedPricing = perMonth[slider.value] * 0.75;
-    price.innerHTML = `$${discountedPricing}`;
+    price.innerHTML = "$" + discountedPricing.toFixed(2);
     planType.textContent = "year";
   } else {
     var pricing = perMonth[slider.value];
-    price.innerHTML = `$${pricing}.00`;
+    price.innerHTML = "$" + pricing.toFixed(2);
     planType.textContent = "month";
   }
 }
