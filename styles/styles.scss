@@ -50,7 +50,7 @@ main {
       color: $GrayishBlue;
       margin: 10px 0;
       line-height: 25px;
-      & br {
+      .break {
         @include desktop {
           display: none;
         }
