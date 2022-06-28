@@ -13,16 +13,16 @@ let isYearly = false;
 
 // updates slider
 slider.addEventListener("input", () => {
-  setSliderValue(slider, pricing, changePrice);
+  setSliderValue(slider, pricing);
 });
 
 // toggle between monthly and annually pricing
 checkbox.addEventListener("change", (e) => {
   e.target.checked ? (isYearly = true) : (isYearly = false);
-  setSliderValue(slider, pricing, changePrice);
+  setSliderValue(slider, pricing);
 });
 
-function setSliderValue(item, arr, callback) {
+function setSliderValue(item, arr) {
   const viewOutput = document.getElementById("pageviews-count");
   const priceOutput = document.getElementById("price");
   const planType = document.getElementById("plan-type");
@@ -41,7 +41,7 @@ function setSliderValue(item, arr, callback) {
   viewOutput.innerHTML = `${currentViews} pageviews`;
   priceOutput.innerHTML = "$" + currentPrice.toFixed(2);
   planType.textContent = "month";
-  callback(currentPrice, planType, priceOutput);
+  changePrice(currentPrice, planType, priceOutput);
   setSliderColor(item);
 }
 
