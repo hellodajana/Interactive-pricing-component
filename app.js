@@ -1,47 +1,63 @@
-var slider = document.getElementById("range");
-var output = document.getElementById("pageviews-count");
-var price = document.getElementById("price");
-var planType = document.getElementById("plan-type");
-var checkbox = document.querySelector('input[type="checkbox"]');
+const slider = document.getElementById("range");
+const checkbox = document.querySelector('input[type="checkbox"]');
 
-var pageViews = ["10K", "50K", "100K", "500K", "1M"];
-var perMonth = [9, 12, 16, 24, 36];
+const pricing = [
+  { views: "10K", price: 9 },
+  { views: "50K", price: 12 },
+  { views: "100K", price: 16 },
+  { views: "500K", price: 24 },
+  { views: "1M", price: 36 },
+];
 
-var isYearly = false;
+let isYearly = false;
 
-// slider changes price and view counts
+// updates slider
 slider.addEventListener("input", () => {
-  changePrice();
-  var views = pageViews[slider.value];
-  output.innerHTML = `${views} pageviews`;
+  setSliderValue(slider, pricing, changePrice);
+});
 
-  let value = slider.value * 25;
+// toggle between monthly and annually pricing
+checkbox.addEventListener("change", (e) => {
+  e.target.checked ? (isYearly = true) : (isYearly = false);
+  setSliderValue(slider, pricing, changePrice);
+});
+
+function setSliderValue(item, arr, callback) {
+  const viewOutput = document.getElementById("pageviews-count");
+  const priceOutput = document.getElementById("price");
+  const planType = document.getElementById("plan-type");
+  item.max = arr.length - 1; // sets sliders max value
+  // returns two new arrays
+  const [views, price] = arr.reduce(
+    ([a, b], { views, price }) => {
+      a.push(views);
+      b.push(price);
+      return [a, b];
+    },
+    [[], []]
+  );
+  const value = item.value;
+  const [currentViews, currentPrice] = [views[value], price[value]];
+  viewOutput.innerHTML = `${currentViews} pageviews`;
+  priceOutput.innerHTML = "$" + currentPrice.toFixed(2);
+  planType.textContent = "month";
+  callback(currentPrice, planType, priceOutput);
+  setSliderColor(item);
+}
+
+function changePrice(price, plan, output) {
+  if (isYearly === true) {
+    price *= 0.75;
+    output.innerHTML = "$" + price.toFixed(2);
+    plan.textContent = "year";
+  }
+}
+
+function setSliderColor(item) {
+  let value = item.value * 25;
   slider.style.background = `linear-gradient(to right,
     hsl(174, 77%, 80%) 0%,
     hsl(174, 77%, 80%) ${value}%,
     hsl(224, 65%, 95%) 0%,
     hsl(224, 65%, 95%) 100%)`;
-});
-
-// checks if toggle switch is on
-checkbox.addEventListener("change", (e) => {
-  if (e.target.checked) {
-    isYearly = true;
-  } else {
-    isYearly = false;
-  }
-  changePrice();
-});
-
-// changes price
-function changePrice() {
-  if (isYearly == true) {
-    var discountedPricing = perMonth[slider.value] * 0.75;
-    price.innerHTML = "$" + discountedPricing.toFixed(2);
-    planType.textContent = "year";
-  } else {
-    var pricing = perMonth[slider.value];
-    price.innerHTML = "$" + pricing.toFixed(2);
-    planType.textContent = "month";
-  }
 }
