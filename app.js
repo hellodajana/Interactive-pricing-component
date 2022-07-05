@@ -1,4 +1,3 @@
-const slider = document.getElementById("range");
 const checkbox = document.querySelector('input[type="checkbox"]');
 
 const pricing = [
@@ -9,40 +8,43 @@ const pricing = [
   { views: "1M", price: 36 },
 ];
 
+const slider = document.getElementById("range");
+slider.max = pricing.length - 1; // set sliders max value
+
+// return two new arrays
+const [views, price] = pricing.reduce(
+  ([a, b], { views, price }) => {
+    a.push(views);
+    b.push(price);
+    return [a, b];
+  },
+  [[], []]
+);
+
 let isYearly = false;
 
-// updates slider
+// update slider
 slider.addEventListener("input", () => {
-  setSliderValue(slider, pricing);
+  setSliderValue();
 });
 
 // toggle between monthly and annually pricing
 checkbox.addEventListener("change", (e) => {
   e.target.checked ? (isYearly = true) : (isYearly = false);
-  setSliderValue(slider, pricing);
+  setSliderValue();
 });
 
-function setSliderValue(item, arr) {
+function setSliderValue() {
   const viewOutput = document.getElementById("pageviews-count");
   const priceOutput = document.getElementById("price");
   const planType = document.getElementById("plan-type");
-  item.max = arr.length - 1; // sets sliders max value
-  // returns two new arrays
-  const [views, price] = arr.reduce(
-    ([a, b], { views, price }) => {
-      a.push(views);
-      b.push(price);
-      return [a, b];
-    },
-    [[], []]
-  );
-  const value = item.value;
+  const value = slider.value;
   const [currentViews, currentPrice] = [views[value], price[value]];
   viewOutput.innerHTML = `${currentViews} pageviews`;
   priceOutput.innerHTML = "$" + currentPrice.toFixed(2);
   planType.textContent = "month";
   changePrice(currentPrice, planType, priceOutput);
-  setSliderColor(item);
+  setSliderColor();
 }
 
 function changePrice(price, plan, output) {
@@ -53,8 +55,8 @@ function changePrice(price, plan, output) {
   }
 }
 
-function setSliderColor(item) {
-  let value = item.value * 25;
+function setSliderColor() {
+  let value = slider.value * 25;
   slider.style.background = `linear-gradient(to right,
     hsl(174, 77%, 80%) 0%,
     hsl(174, 77%, 80%) ${value}%,
