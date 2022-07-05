@@ -21,7 +21,7 @@ main {
 }
 
 .header {
-  background: url(/images/bg-pattern.svg) no-repeat;
+  background: url(../images/bg-pattern.svg) no-repeat;
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -34,7 +34,7 @@ main {
   }
   &__container {
     padding: 2rem;
-    background: url(/images/pattern-circles.svg) center no-repeat;
+    background: url(../images/pattern-circles.svg) center no-repeat;
     background-size: contain;
     height: 10rem;
     @include desktop {

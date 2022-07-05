@@ -33,7 +33,7 @@ input[type="range"]:focus {
   width: 40px;
   margin: -12px 0px;
   border-radius: 100%;
-  background: #10d5c2 url(/images/icon-slider.svg) center/auto no-repeat;
+  background: #10d5c2 url(../images/icon-slider.svg) center/auto no-repeat;
   cursor: pointer;
 }
 
@@ -48,7 +48,7 @@ input[type="range"]:focus {
   width: 40px;
   margin: -12px 0px;
   border-radius: 100%;
-  background: #10d5c2 url(/images/icon-slider.svg) center/auto no-repeat;
+  background: #10d5c2 url(../images/icon-slider.svg) center/auto no-repeat;
   cursor: pointer;
 }
 
@@ -63,7 +63,7 @@ input[type="range"]:focus {
   width: 40px;
   margin: -12px 0px;
   border-radius: 100%;
-  background: #10d5c2 url(/images/icon-slider.svg) center/auto no-repeat;
+  background: #10d5c2 url(../images/icon-slider.svg) center/auto no-repeat;
   cursor: pointer;
 }
 
@@ -130,7 +130,7 @@ main {
 }
 
 .header {
-  background: url(/images/bg-pattern.svg) no-repeat;
+  background: url(../images/bg-pattern.svg) no-repeat;
   background-size: cover;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -157,7 +157,7 @@ main {
 
 .header__container {
   padding: 2rem;
-  background: url(/images/pattern-circles.svg) center no-repeat;
+  background: url(../images/pattern-circles.svg) center no-repeat;
   background-size: contain;
   height: 10rem;
 }
@@ -181,7 +181,7 @@ main {
 }
 
 @media (min-width: 900px) {
-  .header__container p br {
+  .header__container p .break {
     display: none;
   }
 }
