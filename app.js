@@ -28,10 +28,16 @@ function setSliderValue(item, arr) {
   const planType = document.getElementById("plan-type");
   item.max = arr.length - 1; // sets sliders max value
   // returns two new arrays
-  const getViews = arr.map((x) => x.views);
-  const getPrice = arr.map((x) => x.price);
+  const [views, price] = arr.reduce(
+    ([a, b], { views, price }) => {
+      a.push(views);
+      b.push(price);
+      return [a, b];
+    },
+    [[], []]
+  );
   const value = item.value;
-  const [currentViews, currentPrice] = [getViews[value], getPrice[value]];
+  const [currentViews, currentPrice] = [views[value], price[value]];
   viewOutput.innerHTML = `${currentViews} pageviews`;
   priceOutput.innerHTML = "$" + currentPrice.toFixed(2);
   planType.textContent = "month";
